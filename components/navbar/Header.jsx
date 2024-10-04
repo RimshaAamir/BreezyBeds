@@ -1,7 +1,7 @@
 // components/Header.jsx
 import Logo from './Logo';
 import NavigationLinks from './NavigationLinks';
-import SearchBar from './SearchBar';
+import SearchBar from './SearchBar'
 import UserMenu from './UserMenu';
 
 const Header = () => {
