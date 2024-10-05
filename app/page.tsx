@@ -1,7 +1,7 @@
 import Header from "../components/navbar/Header";
 import Categories from "../components/categories/Categories"
 import ListingCard from "../components/cards/ListingCard";
-
+import Footer from "@/components/footer/Footer";
 export default function Home() {
   const listings = [
     {
@@ -99,6 +99,7 @@ export default function Home() {
           ))}
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }
