@@ -49,7 +49,7 @@ const Categories = () => {
   ];
 
   return (
-    <div className="py-4 px-4 bg-white border-b border-gray-200 flex items-center">
+    <div className="py-4 px-4 bg-zinc-950 border-b border-gray-200 flex items-center">
       <div className="overflow-x-auto whitespace-nowrape">
         <div className="inline-flex space-x-6">
           {categories.map((category, index) => (

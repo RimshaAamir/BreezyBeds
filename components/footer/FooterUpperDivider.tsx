@@ -6,8 +6,8 @@ const FooterUpperDivider: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Column 1: Support */}
         <div>
-          <h3 className="text-gray-800 font-semibold mb-4">Support</h3>
-          <ul className="space-y-2 text-gray-600">
+          <h3 className="text-violet-500 font-semibold mb-4">Support</h3>
+          <ul className="space-y-2 text-violet-50">
             <li>Help Center</li>
             <li>AirCover</li>
             <li>Anti-discrimination</li>
@@ -19,8 +19,8 @@ const FooterUpperDivider: React.FC = () => {
 
         {/* Column 2: Hosting */}
         <div>
-          <h3 className="text-gray-800 font-semibold mb-4">Hosting</h3>
-          <ul className="space-y-2 text-gray-600">
+          <h3 className="text-violet-600 font-semibold mb-4">Hosting</h3>
+          <ul className="space-y-2 text-violet-50">
             <li>Airbnb your home</li>
             <li>AirCover for Hosts</li>
             <li>Hosting resources</li>
@@ -34,8 +34,8 @@ const FooterUpperDivider: React.FC = () => {
 
         {/* Column 3: Airbnb */}
         <div>
-          <h3 className="text-gray-800 font-semibold mb-4">Airbnb</h3>
-          <ul className="space-y-2 text-gray-600">
+          <h3 className="text-violet-600 font-semibold mb-4">Airbnb</h3>
+          <ul className="space-y-2 text-violet-50">
             <li>Newsroom</li>
             <li>New features</li>
             <li>Careers</li>

@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const FooterBottomDivider: React.FC = () => {
   return (
-    <div className="border-t border-gray-300 mt-8 pt-4 flex flex-wrap justify-between items-center text-gray-600 text-sm">
+    <div className="border-t border-gray-300 mt-8 pt-4 flex flex-wrap justify-between items-center text-violet-400 text-sm">
       {/* Left Section: Links */}
       <div className="flex flex-wrap space-x-2 mb-2 md:mb-0">
         <span>© 2024 Airbnb, Inc.</span>

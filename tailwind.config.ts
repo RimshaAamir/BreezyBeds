@@ -11,13 +11,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#150016",        // Main app, header, and footer background
-        textLight: "#FFE3D8",         // Primary text color
-        card: "#29104A",              // Card and search input background
-        divider: "#522C5D",           // Divider color in search bar and card
-        buttonAccent: "#E3B6B1",      // Accent color for buttons
-        secondaryText: "#E3B6B1",     // Secondary text color
-        accent: "#E3B6B1",            // Accent color for highlights (price, rating)
+        background: "#0e0e11",        // zinc-950 Main app, header, and footer background
+        textLight: "#effcfc",         // my-sky-50  Primary text color
+        card: "#1a1a1e",              // zinc-900  Card and search input background
+        divider: "#204859",           // my-sky-900 Divider color in search bar and card
+        buttonAccent: "#21a1b9",      // my-sky-500 Accent color for buttons
+        secondaryText: "#d5f4f8",     // my-sky-100  Secondary text color
+        accent: "#3dbdd3",            // my-sky-400  Accent color for highlights (price, rating)
+
+        my_sky_50: "#effcfc",
+        my_sky_100: "#d5f4f8",
+        my_sky_200: "#b1e9f0",
+        my_sky_300: "#7ad7e6",
+        my_sky_400: "#3dbdd3",
+        my_sky_500: "#21a1b9",
+        my_sky_600: "#1f819b",
+        my_sky_700: "#1f697f",
+        my_sky_800: "#225668",
+        my_sky_900: "#204859",
+        my_sky_950: "#113240"
       },
     },
   },

@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import FooterUpperDivider from "./FooterUpperDivider";
 import FooterBottomDivider from "./FooterBottomDivider";
 
-const categories = [
+type CategoryContent = {
+  title: string;
+  description: string;
+};
+
+const categories: string[] = [
   "Popular",
   "Arts & culture",
   "Outdoors",
@@ -16,79 +21,60 @@ const categories = [
   "Airbnb-friendly apartments",
 ];
 
-const contentMap: { [key: string]: string[] } = {
+const contentMap: Record<string, CategoryContent[]> = {
   Popular: [
-    "Canmore - Pet-friendly rentals",
-    "Benalmádena - Apartment rentals",
-    "Marbella - Apartment rentals",
-    "Mijas - Apartment rentals",
-    "Prescott - Pet-friendly rentals",
-    "Scottsdale - Mansion rentals",
-    "Tucson - House rentals",
-    "Jasper - Cabin rentals",
-    "Mountain View - Pet-friendly rentals",
-    "Devonport - Cottage rentals",
-    "Mallacoota - Pet-friendly rentals",
-    "Ibiza - Vacation rentals",
-    "Anaheim - House rentals",
-    "Monterey - Cabin rentals",
-    "Paso Robles - House rentals",
-    "Santa Barbara - Apartment rentals",
-    "Sonoma - Cottage rentals",
-    "Show more",
+    { title: "Canmore", description: "Pet-friendly rentals" },
+    { title: "Benalmádena", description: "Apartment rentals" },
+    { title: "Marbella", description: "Beachfront rentals" },
+    { title: "Mijas", description: "House rentals" },
+    { title: "Prescott", description: "Cottage rentals" },
+    { title: "Scottsdale", description: "Apartment rentals" },
+    { title: "Tucson", description: "Condo rentals" },
+    { title: "Jasper", description: "Cabin rentals" },
+    { title: "Mountain View", description: "Pet-friendly rentals" },
+    { title: "Devonport", description: "Cottage rentals" },
+    { title: "Mallacoota", description: "Pet-friendly rentals" },
+    { title: "Ibiza", description: "Vacation rentals" },
+    { title: "Anaheim", description: "Beach house rentals" },
+    { title: "Monterey", description: "Cabin rentals" },
+    { title: "Paso Robles", description: "House rentals" },
+    { title: "Santa Barbara", description: "Apartment rentals" },
+    { title: "Sonoma", description: "Cottage rentals" },
+    { title: "Show more", description: "" },
   ],
-  "Arts & culture": [
-    "Phoenix - Apartment rentals",
-    "Hot Springs - Lakehouse rentals",
-    "Los Angeles - Cottage rentals",
-    "San Diego - Beach house rentals",
-    "San Francisco - Vacation rentals",
-    "Barcelona - Vacation rentals",
-    "Prague - Vacation rentals",
-    "Washington - Apartment rentals",
-    "Keswick - Cottage rentals",
-    "London - Beachfront rentals",
-    "Scarborough - Vacation rentals",
-    "Sherwood Forest - Cabin rentals",
-    "York - Apartment rentals",
-    "Paris - Villa rentals",
-    "Rhodes - Apartment rentals",
-    "Nashville - Vacation rentals",
-    "Dublin - Cottage rentals",
-    "Show more",
-  ],
-  Outdoors: ["Content for Outdoors..."],
-  Mountains: ["Content for Mountains..."],
-  Beach: ["Content for Beach..."],
-  "Unique stays": ["Content for Unique stays..."],
-  Categories: ["Content for Categories..."],
-  "Things to do": ["Content for Things to do..."],
-  "Travel tips & inspiration": ["Content for Travel tips & inspiration..."],
-  "Airbnb-friendly apartments": ["Content for Airbnb-friendly apartments..."],
+  "Arts & culture": [{ title: "Coming Soon", description: "" }],
+  Outdoors: [{ title: "Coming Soon", description: "" }],
+  Mountains: [{ title: "Coming Soon", description: "" }],
+  Beach: [{ title: "Coming Soon", description: "" }],
+  "Unique stays": [{ title: "Coming Soon", description: "" }],
+  Categories: [{ title: "Coming Soon", description: "" }],
+  "Things to do": [{ title: "Coming Soon", description: "" }],
+  "Travel tips & inspiration": [{ title: "Coming Soon", description: "" }],
+  "Airbnb-friendly apartments": [{ title: "Coming Soon", description: "" }],
 };
 
 const Footer: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Popular");
+  const [selectedCategory, setSelectedCategory] =
+    useState<keyof typeof contentMap>("Popular");
 
   return (
-    <div className="bg-gray-100 py-8 px-10 md:px-20 lg:px-48">
-      {/* Title */}
-      <h2 className="text-lg font-semibold text-gray-800 mb-4">
+    <div className="bg-black py-8 px-10 md:px-20 lg:px-48 space-y-6">
+      <h2 className="text-lg font-semibold text-violet-50 mb-4">
         Inspiration for future getaways
       </h2>
 
-      {/* Buttons: Horizontal Scroll in Mobile */}
-      <div className="overflow-x-auto whitespace-nowrap border-b border-gray-300 mb-4">
-        <div className="flex space-x-6">
+      {/* Categories Navigation */}
+      <div className="overflow-x-auto border-b border-violet-50 pb-2">
+        <div className="flex space-x-8">
           {categories.map((category) => (
             <button
               key={category}
-              className={`pb-2 text-sm font-medium ${
+              className={`text-sm font-medium pb-2 ${
                 selectedCategory === category
-                  ? "border-b-2 border-black text-black"
-                  : "text-gray-600 hover:text-black"
+                  ? "text-violet-600 border-b-2 border-violet-600"
+                  : "text-violet-50 hover:text-violet-50"
               }`}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => setSelectedCategory(category as keyof typeof contentMap)}
             >
               {category}
             </button>
@@ -97,26 +83,23 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Dynamic Content */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 text-sm text-gray-700">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {contentMap[selectedCategory].map((item, index) => (
           <div key={index}>
-            {item.includes("Show more") ? (
-              <button className="text-blue-500 hover:underline">{item}</button>
-            ) : (
-              <p>{item}</p>
+            <p className="font-medium text-violet-50">{item.title}</p>
+            {item.description && (
+              <p className="text-gray-300 text-sm">{item.description}</p>
             )}
           </div>
         ))}
       </div>
 
-      <div className="bg-gray-100">
-      {/* Upper Footer Section */}
-      <FooterUpperDivider />
+        {/* Footer Upper and Bottom Sections */}
+        <div>
+        <FooterUpperDivider />
+        <FooterBottomDivider />
+      </div>
 
-      {/* Bottom Footer Section */}
-      <FooterBottomDivider />
-    </div>
-    
     </div>
   );
 };
