@@ -19,10 +19,14 @@ export default function Home() {
   const [listings, setListings] = useState<Listing[]>([]);
 
   useEffect(() => {
-    console.log("in EFFFFFFFFFFFFFFFFFFFF");
-    // Fetch data from the JSON file
-    fetch("/listings.json")
-      .then((response) => response.json())
+    // Fetch data from the API endpoint
+    fetch("/api/listings")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch listings");
+        }
+        return response.json();
+      })
       .then((data) => setListings(data))
       .catch((error) => console.error("Error loading listings data:", error));
   }, []);

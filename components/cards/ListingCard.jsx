@@ -18,15 +18,15 @@ const ListingCard = ({ images, title, location, distance, dates, price, rating }
       <div className="p-4">
         <div className="flex justify-between items-center mb-1">
           <h2 className="text-lg font-bold">{title}</h2>
-          <div className="flex items-center text-accent">
+          <div className="flex items-center text-my_sky_300">
             <FaStar className="mr-1" />
             <span>{rating}</span>
           </div>
         </div>
-        <p className="text-secondaryText text-sm">{location}</p>
-        <p className="text-secondaryText text-sm mb-2">{distance} kilometers away</p>
-        <p className="text-secondaryText text-sm">{dates}</p>
-        <p className="text-lg font-semibold text-accent mt-2">{price} / night</p>
+        <p className="text-my_sky_200 text-sm">{location}</p>
+        <p className="text-my_sky_200 text-sm mb-2">{distance} kilometers away</p>
+        <p className="text-my_sky_200 text-sm">{dates}</p>
+        <p className="text-lg font-semibold text-my_sky_500 mt-2">{price} / night</p>
       </div>
     </div>
   );

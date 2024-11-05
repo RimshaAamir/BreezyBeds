@@ -19,16 +19,27 @@ const config: Config = {
         secondaryText: "#d5f4f8",     // my-sky-100  Secondary text color
         accent: "#3dbdd3",            // my-sky-400  Accent color for highlights (price, rating)
 
-        my_sky_50: "#effcfc",
-        my_sky_100: "#d5f4f8",
-        my_sky_200: "#b1e9f0",
-        my_sky_300: "#7ad7e6",
-        my_sky_400: "#3dbdd3",
-        my_sky_500: "#21a1b9",
-        my_sky_600: "#1f819b",
-        my_sky_700: "#1f697f",
-        my_sky_800: "#225668",
-        my_sky_900: "#204859",
+        // my_sky_50: "#effcfc",
+        // my_sky_100: "#d5f4f8",
+        // my_sky_200: "#b1e9f0",
+        // my_sky_300: "#7ad7e6",
+        // my_sky_400: "#3dbdd3",
+        // my_sky_500: "#21a1b9",
+        // my_sky_600: "#1f819b",
+        // my_sky_700: "#1f697f",
+        // my_sky_800: "#225668",
+        // my_sky_900: "#204859",
+        // my_sky_950: "#113240"
+        
+        my_sky_50: "##f9f3ed",
+        my_sky_200: "#e4c0a4",
+        my_sky_300: "#d49970",
+        my_sky_400: "#c77648",
+        my_sky_500: "#b8623a",
+        my_sky_600: "#9e4a30",
+        my_sky_700: "#7f3729",
+        my_sky_800: "#6a2f29",
+        my_sky_900: "#5c2927",
         my_sky_950: "#113240"
       },
     },
