@@ -9,6 +9,19 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       return;
     }
 
+    const checkInDate = new Date(checkIn);
+    const checkOutDate = new Date(checkOut);
+
+    if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
+      res.status(400).json({ message: "Invalid date format" });
+      return;
+    }
+
+    if (checkInDate >= checkOutDate) {
+      res.status(400).json({ message: "Check-out date must be after check-in date" });
+      return;
+    }
+
     // Mock response for a successful booking
     const booking = {
       id: new Date().getTime(), // Mock booking ID
