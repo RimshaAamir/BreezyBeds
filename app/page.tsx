@@ -6,6 +6,7 @@ import Footer from "@/components/footer/Footer";
 import { useEffect, useState } from "react";
 
 interface Listing {
+  id: number; 
   images: string[];
   title: string;
   location: string;
@@ -40,9 +41,10 @@ export default function Home() {
         <h1 className="text-3xl font-bold mb-6 mt-6">Explore Our Listings</h1>
         {/* Listings Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {listings.map((listing, index) => (
+          {listings.map((listing) => (
             <ListingCard
-              key={index}
+              key={listing.id}
+              id={listing.id} 
               images={listing.images}
               title={listing.title}
               location={listing.location}

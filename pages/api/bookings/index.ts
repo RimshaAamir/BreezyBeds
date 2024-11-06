@@ -2,9 +2,9 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    const { listingId, userId, startDate, endDate } = req.body;
+    const { listingId, userId, checkIn, checkOut } = req.body;
 
-    if (!listingId || !userId || !startDate || !endDate) {
+    if (!listingId || !userId || !checkIn || !checkOut) {
       res.status(400).json({ message: "Invalid booking data" });
       return;
     }
@@ -14,8 +14,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       id: new Date().getTime(), // Mock booking ID
       listingId,
       userId,
-      startDate,
-      endDate,
+      checkIn,
+      checkOut,
       status: "confirmed",
     };
 
