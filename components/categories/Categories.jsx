@@ -7,7 +7,6 @@ import {
   FaHouseDamage, 
   FaHistory, 
   FaCoffee, 
-  // FaCastle, 
   FaFireAlt, 
   FaSnowflake, 
   FaHome, 
@@ -20,8 +19,8 @@ import {
   FaShip, 
   FaDotCircle 
 } from "react-icons/fa";
-import {IoTennisball, IoEarth } from "react-icons/io5";
-import CategoryButton from "./CategoryButton"
+import { IoTennisball, IoEarth } from "react-icons/io5";
+import CategoryButton from "./CategoryButton";
 
 const Categories = () => {
   const categories = [
@@ -32,7 +31,6 @@ const Categories = () => {
     { icon: <FaHouseDamage />, label: "A-frames" },
     { icon: <FaHistory />, label: "Historical homes" },
     { icon: <FaCoffee />, label: "Bed & breakfasts" },
-    // { icon: <FaCastle />, label: "Mansions" },
     { icon: <FaFireAlt />, label: "Trending" },
     { icon: <FaSnowflake />, label: "Arctic" },
     { icon: <FaHome />, label: "Cabins" },
@@ -49,27 +47,27 @@ const Categories = () => {
   ];
 
   return (
-    <div className="py-4 px-4 bg-zinc-950 border-b border-gray-200 flex items-center">
-      <div className="overflow-x-auto whitespace-nowrape">
-        <div className="inline-flex space-x-6">
+    <div className="py-4 px-4 bg-white border-b border-gray-200 flex items-center">
+      <div className="overflow-x-auto whitespace-nowrap">
+        <div className="inline-flex space-x-6 mx-3">
           {categories.map((category, index) => (
             <CategoryButton key={index} icon={category.icon} label={category.label} />
           ))}
         </div>
       </div>
-        {/* Right-side filters and toggle */}
-        <div className="flex items-center space-x-4 ml-auto">
-          <button className="px-4 py-2 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-100">
-            Filters
-          </button>
-          <label className="flex items-center space-x-2 text-sm text-gray-700">
-            <span>Display total before taxes</span>
-            <input
-              type="checkbox"
-              className="toggle-checkbox w-4 h-4 border-gray-300 rounded-full"
-            />
-          </label>
-        </div>
+      {/* Right-side filters and toggle */}
+      <div className=" items-center space-x-4 ml-5 hidden md:flex ">
+        <button className="px-4 py-2 border border-gray-300 rounded-md text-sm text-gray-900 hover:bg-gray-100 transition">
+          Filters
+        </button>
+        <label className="flex items-center space-x-2 text-sm text-gray-900">
+          <span>Display total before taxes</span>
+          <input
+            type="checkbox"
+            className="toggle-checkbox w-4 h-4 border-gray-300 rounded-full focus:ring-purple-500"
+          />
+        </label>
+      </div>
     </div>
   );
 };

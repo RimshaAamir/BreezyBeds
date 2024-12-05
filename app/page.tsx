@@ -89,29 +89,29 @@ export default function Home() {
 
   return (
     <div className="bg-white min-h-screen text-primaryText">
-      <Header />
-      <main className="p-4">
-        {/* Categories Section */}
-        <Categories />
-        <h1 className="text-3xl font-bold mb-6 mt-6">Explore Our Listings</h1>
-        {/* Listings Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {listings.map((listing) => (
-            <ListingCard
-              key={listing._id}
-              id={listing._id}
-              images={listing.images}
-              title={listing.title}
-              location={listing.location}
-              distance={listing.distance}
-              dates={listing.dates}
-              price={listing.price}
-              rating={listing.rating}
-            />
-          ))}
-        </div>
-      </main>
-      <Footer />
+  <Header />
+  <main className="p-4 flex flex-col">
+    {/* Categories Section */}
+    <Categories />
+    <h1 className="ml-5 text-3xl text-black font-bold mb-6 mt-6">Explore Our Listings</h1>
+    {/* Listings Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full sm:w-4/5 lg:w-7/10 mx-auto">
+      {listings.map((listing) => (
+        <ListingCard
+          key={listing._id}
+          id={listing._id}
+          images={listing.images}
+          title={listing.title}
+          location={listing.location}
+          distance={listing.distance}
+          dates={listing.dates}
+          price={listing.price}
+          rating={listing.rating}
+        />
+      ))}
     </div>
+  </main>
+  <Footer />
+</div>
   );
 }
