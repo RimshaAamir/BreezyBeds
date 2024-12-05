@@ -141,6 +141,7 @@
 
 import { useParams } from "next/navigation"; // Get the route parameter
 import { useEffect, useState } from "react";
+import useAuth from "../../../lib/useAuth";
 
 interface Listing {
   _id: string; // MongoDB's ObjectId as a string
@@ -151,6 +152,7 @@ interface Listing {
 export default function BookingPage() {
   const params = useParams(); // Get the route parameters
   const id = params?.id as string; // Safely cast `id` to a string
+  const isAuthorized = useAuth(); // Ensure user is authenticated
   const [listing, setListing] = useState<Listing | null>(null);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
@@ -170,6 +172,15 @@ export default function BookingPage() {
         .catch((err) => console.error("Error fetching listing details:", err));
     }
   }, [id]);
+
+  const getUserIdFromToken = () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      return null;
+    }
+    const payload = JSON.parse(atob(token.split(".")[1])); // Decode JWT payload
+    return payload.id;
+  };
 
   const validateDates = () => {
     const checkInDate = new Date(checkIn);
@@ -200,38 +211,47 @@ export default function BookingPage() {
     }
   };
 
-  const handleBooking = () => {
+  const handleBooking = async () => {
     if (!validateDates()) {
+      return;
+    }
+
+    const userId = getUserIdFromToken(); // Get user ID from JWT
+    if (!userId) {
+      setError("User is not authenticated.");
       return;
     }
 
     const bookingDetails = {
       listingId: id,
-      userId: "mock-user-id", // Replace with real user ID in authentication
+      userId, // Use the real user ID from the JWT
       checkIn,
       checkOut,
     };
 
-    fetch("/api/bookings", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(bookingDetails),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to create booking");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        alert("Booking confirmed!");
-        console.log(data);
-      })
-      .catch((err) => {
-        console.error("Error creating booking:", err);
-        setError("Failed to create booking. Please try again.");
+    try {
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+         },
+        body: JSON.stringify(bookingDetails),
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to create booking");
+      }
+
+      const data = await response.json();
+      alert("Booking confirmed!");
+      console.log(data);
+    } catch (err) {
+      console.error("Error creating booking:", err);
+      setError("Failed to create booking. Please try again.");
+    }
   };
+
+  if (!isAuthorized) return <p>Redirecting to login...</p>;
 
   if (!listing) return <p>Loading...</p>;
 
