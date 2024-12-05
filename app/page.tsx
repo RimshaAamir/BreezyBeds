@@ -88,7 +88,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-background min-h-screen text-primaryText">
+    <div className="bg-white min-h-screen text-primaryText">
       <Header />
       <main className="p-4">
         {/* Categories Section */}

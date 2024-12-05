@@ -5,12 +5,12 @@ import { FiMenu } from 'react-icons/fi';
 
 const UserMenu = () => {
   return (
-    <div className="flex items-center space-x-4 cursor-pointer text-[#FFE3D8]">
-      <span className="hover:text-[#E3B6B1]">Your home</span>
-      <HiOutlineGlobe className="text-[#FFE3D8] hover:text-[#E3B6B1]" size={20} />
-      <div className="flex items-center border border-[#845162] rounded-full p-2 space-x-2 bg-[#29104A]">
-        <FiMenu className="text-[#FFE3D8]" />
-        <FaUserCircle className="text-[#FFE3D8]" size={20} />
+    <div className="flex items-center space-x-6 text-gray-700">
+      <span className="hover:text-purple-500 transition cursor-pointer">Your home</span>
+      <HiOutlineGlobe className="text-gray-700 hover:text-purple-500 cursor-pointer transition" size={20} />
+      <div className="flex items-center border border-gray-300 rounded-full p-2 space-x-2 bg-gray-100 hover:bg-gray-200 transition">
+        <FiMenu className="text-gray-700" />
+        <FaUserCircle className="text-gray-900" size={20} />
       </div>
     </div>
   );

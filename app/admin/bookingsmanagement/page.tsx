@@ -6,10 +6,11 @@ import useAuth from "../../../lib/useAuth";
 interface Booking {
   _id: string; // MongoDB ObjectId as string
   userId: string;
-  listingId: {
-    _id: string;
-    title: string;
-  };
+  // listingId: {
+  //   _id: string;
+  //   title: string;
+  // };
+  listingId: string;
   checkIn: string;
   checkOut: string;
   status: string;
@@ -40,7 +41,7 @@ export default function BookingsManagement() {
               <strong>User ID:</strong> {booking.userId}
             </p>
             <p>
-              <strong>Listing:</strong> {booking.listingId.title}
+              <strong>Listing:</strong> {booking.listingId}
             </p>
             <p>
               <strong>Check-In:</strong> {new Date(booking.checkIn).toLocaleDateString()}
