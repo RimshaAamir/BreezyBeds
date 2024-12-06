@@ -1,14 +1,16 @@
 "use client";
 import { useState } from "react";
-
+import Image from "next/image";
 const ImageCarousel = ({ images, title }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const nextImage = () => {
+  const nextImage = (e) => {
+    e.stopPropagation(); // Prevent triggering navigation
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  const prevImage = () => {
+  const prevImage = (e) => {
+    e.stopPropagation(); // Prevent triggering navigation
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
@@ -16,20 +18,22 @@ const ImageCarousel = ({ images, title }) => {
 
   return (
     <div className="relative">
-      <img
+      <Image
         src={images[currentImageIndex]}
         alt={`${title} - Image ${currentImageIndex + 1}`}
         className="w-full h-56 object-cover rounded-t-lg"
+        width={1440}
+        height={980}
       />
       <button
         onClick={prevImage}
-        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white text-gray-900 rounded-full p-2 opacity-75 hover:opacity-100 shadow-md"
+        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-slate-50 text-gray-900 rounded-full p-2 opacity-75 hover:opacity-100 shadow-md"
       >
         ‹
       </button>
       <button
         onClick={nextImage}
-        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-gray-900 rounded-full p-2 opacity-75 hover:opacity-100 shadow-md"
+        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-slate-50 text-gray-900 rounded-full p-2 opacity-75 hover:opacity-100 shadow-md"
       >
         ›
       </button>

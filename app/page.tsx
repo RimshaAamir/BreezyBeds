@@ -2,7 +2,6 @@
 import Header from "../components/navbar/Header";
 import Categories from "../components/categories/Categories";
 import ListingCard from "../components/cards/ListingCard";
-import Footer from "@/components/footer/Footer";
 import { useEffect, useState } from "react";
 
 // interface Listing {
@@ -88,7 +87,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen text-primaryText">
+    <div className="bg-slate-50 min-h-screen text-primaryText">
   <Header />
   <main className="p-4 flex flex-col">
     {/* Categories Section */}
@@ -111,7 +110,6 @@ export default function Home() {
       ))}
     </div>
   </main>
-  <Footer />
 </div>
   );
 }

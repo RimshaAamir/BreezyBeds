@@ -1,7 +1,9 @@
 // components/SearchBar.jsx
+import { FaSearch } from 'react-icons/fa';
+
 const SearchBar = () => {
   return (
-    <div className="flex items-center bg-white border border-gray-300 rounded-full px-4 py-2 shadow-md mt-4 mx-auto w-full max-w-4xl space-x-2">
+    <div className="flex items-center bg-slate-50 border border-gray-300 rounded-full px-4 py-2 shadow-md mt-4 mx-auto w-full max-w-4xl space-x-2">
       {/* Where input */}
       <input
         type="text"
@@ -30,8 +32,8 @@ const SearchBar = () => {
       />
 
       {/* Search button */}
-      <button className="bg-purple-500 text-white p-3 rounded-full hover:bg-purple-600 transition ml-2">
-        🔍
+      <button className="bg-zinc-700 text-white p-3 rounded-full hover:bg-zinc-800 transition ml-2">
+        <FaSearch /> {/* Replace the emoji with the React search icon */}
       </button>
     </div>
   );

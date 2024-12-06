@@ -47,7 +47,7 @@ const Categories = () => {
   ];
 
   return (
-    <div className="py-4 px-4 bg-white border-b border-gray-200 flex items-center">
+    <div className="py-4 px-4 bg-slate-50 border-b border-gray-200 flex items-center">
       <div className="overflow-x-auto whitespace-nowrap">
         <div className="inline-flex space-x-6 mx-3">
           {categories.map((category, index) => (
@@ -64,7 +64,7 @@ const Categories = () => {
           <span>Display total before taxes</span>
           <input
             type="checkbox"
-            className="toggle-checkbox w-4 h-4 border-gray-300 rounded-full focus:ring-purple-500"
+            className="toggle-checkbox w-4 h-4 border-gray-300 rounded-full focus:ring-purple-700"
           />
         </label>
       </div>

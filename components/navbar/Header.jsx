@@ -6,7 +6,7 @@ import UserMenu from './UserMenu';
 
 const Header = () => {
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50 px-6 py-4">
+    <header className="bg-slate-50 shadow-md sticky top-0 z-50 px-6 py-4">
       <div className="flex items-center justify-between">
         <Logo />
         <NavigationLinks />

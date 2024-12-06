@@ -58,7 +58,9 @@ const Footer: React.FC = () => {
     useState<keyof typeof contentMap>("Popular");
 
   return (
-    <div className="bg-white text-gray-600 py-8 px-6 md:px-16 lg:px-32 space-y-6">
+    
+    <div className="bg-slate-100 text-gray-600 py-8 px-6 md:px-16 lg:px-32 space-y-6">
+      {/* <div className="w-full h-[0.1rem] bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div> */}
       <h2 className="text-xl font-bold text-black mb-4">
         Inspiration for future getaways
       </h2>
