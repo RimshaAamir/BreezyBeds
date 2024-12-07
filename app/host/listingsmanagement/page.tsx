@@ -28,7 +28,7 @@ export default function ListingsManagement() {
   });
 
   useEffect(() => {
-    fetch("/api/admin/listings", {
+    fetch("/api/host/listings", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((res) => res.json())
@@ -38,7 +38,7 @@ export default function ListingsManagement() {
 
   const handleCreate = async () => {
     try {
-      const response = await fetch("/api/admin/listings/post", {
+      const response = await fetch("/api/host/listings/post", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export default function ListingsManagement() {
 
   const handleDelete = async (id: string) => {
     try {
-      await fetch(`/api/admin/listings/${id}`, {
+      await fetch(`/api/host/listings/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });

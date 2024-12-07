@@ -14,7 +14,7 @@ export const verifyToken = (handler, allowedRoles = []) => {
     try {
       const decoded = jwt.verify(token, JWT_SECRET);
       req.user = decoded;
-
+      console.log(decoded);
       // Check if the user's role is allowed
       if (allowedRoles.length && !allowedRoles.includes(decoded.role)) {
         res.status(403).json({ message: "Access denied. Insufficient permissions." });

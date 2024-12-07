@@ -21,7 +21,7 @@ export default function BookingsManagement() {
   const [bookings, setBookings] = useState<Booking[]>([]);
 
   useEffect(() => {
-    fetch("/api/admin/book", {
+    fetch("/api/host/book", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((res) => res.json())
@@ -29,6 +29,7 @@ export default function BookingsManagement() {
       .catch(console.error);
   }, []);
 
+  console.log(bookings);
   if (!isAuthorized) return <p>Redirecting...</p>;
 
   return (

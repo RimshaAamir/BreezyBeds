@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const ListingSchema = new mongoose.Schema({
   images: { type: [String], required: true }, // Array of image URLs
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   title: { type: String, required: true },
   location: { type: String, required: true },
   distance: { type: Number, required: true },
